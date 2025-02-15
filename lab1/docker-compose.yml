@@ -1,0 +1,62 @@
+version: '3'
+networks:
+  shared_network: 
+    driver: bridge
+services:
+  udp_server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: udp_server_computer_networks
+    ports:
+      - "7070:7070"
+    volumes:
+      - D:\uni\computer_networks\lab1\UDP_server:/app
+    networks:
+          - shared_network
+    stdin_open: true #
+    tty: true 
+
+  udp_client:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: udp_client_computer_networks
+    ports:
+      - "6060:6060"
+    volumes:
+      - D:\uni\computer_networks\lab1\UDP_client:/app
+    networks:
+      - shared_network
+
+    stdin_open: true #
+    tty: true 
+
+  tcp_server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tcp_server_computer_networks
+    ports:
+      - "9090:9090"
+    volumes:
+      - D:\uni\computer_networks\lab1\TCP_server:/app
+    networks:
+          - shared_network
+    stdin_open: true #
+    tty: true 
+
+  tcp_client:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tcp_client_computer_networks
+    ports:
+      - "8080:8080"
+    volumes:
+      - D:\uni\computer_networks\lab1\TCP_client:/app
+    networks:
+      - shared_network
+      
+    stdin_open: true #
+    tty: true 
