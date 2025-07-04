@@ -12,7 +12,7 @@ int main() {
     int rc;
     
     server.sin_family  = AF_INET; // IPv4 
-    server.sin_addr.s_addr = inet_addr("172.21.0.3"); 
+    server.sin_addr.s_addr = inet_addr("172.21.0.2"); 
     server.sin_port = htons(8500); 
     
     server_socket = socket(AF_INET, SOCK_DGRAM, 0); // Create a UDP socket
@@ -26,7 +26,7 @@ int main() {
     int dataSize = 0;
     std::cout<< std::endl << std::endl << "Client start " << std::endl <<std::endl;
 
-    for(int i = 0; i < 9; i++) {
+    for(int i = 0; i < 5; i++) {
         
         char request = '1'; 
         rc = sendto(server_socket, (void*)&request, sizeof(request), 0, (struct sockaddr *)&server, sizeof(server));
@@ -49,7 +49,7 @@ int main() {
     }
 
     
-    for(int i = 0; i < 5; i++) {
+    for(int i = 0; i < 9; i++) {
         auto begin = std::chrono::high_resolution_clock::now();
 
         char request = '2'; 

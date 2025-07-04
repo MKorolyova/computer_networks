@@ -36,7 +36,7 @@ int main() {
     Message message;
     float numberToSend = 0.25;
 
-    for(int i=0; i<9; i++){
+    for(int i=0; i<5; i++){
         
         message.setFloat(numberToSend);
 
@@ -60,7 +60,7 @@ int main() {
     }
 
     char charToSend = 'a';
-    for(int i=0; i<5; i++){
+    for(int i=0; i<9; i++){
 
         message.setChar(charToSend);
 
